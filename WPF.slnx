@@ -1,6 +1,8 @@
 <Solution>
   <Project Path="Binding/Binding.csproj" Id="04178a3a-b2fc-46f8-96b0-a8654f766fb8" />
+  <Project Path="CustomTextboxControl/CustomTextboxControl.csproj" Id="2006e8ed-5d76-46d3-8a5a-3878b641fc2c" />
   <Project Path="Grid/Grid.csproj" Id="372f07bd-68e5-4658-8c3e-82ac7f11c755" />
   <Project Path="ListBox/ListBox.csproj" Id="9bd019da-4b6e-4423-9ca5-67d9dda2a1e0" />
+  <Project Path="MenuBar/MenuBar.csproj" Id="87b948cb-e51d-4ccd-a789-3dba0c04a74f" />
   <Project Path="WPF/WPF.csproj" Id="e76c0ec2-862b-46cf-8fec-2fe37a4f2848" />
 </Solution>
