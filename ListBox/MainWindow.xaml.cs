@@ -27,11 +27,44 @@ namespace ListBox
         void DlgProc(object sender, EventArgs e)
         {
             //MessageBox.Show(sender.GetType().ToString().Split('.').Last());
-           // switch (sender.GetType().ToString().Split('.').Last())
+            // switch (sender.GetType().ToString().Split('.').Last())
             switch (sender.GetType().Name)
             {
-                case nameof(TextBox):if ((e as KeyEventArgs).Key == Key.Enter) DlgProc(btnAdd, null);break;
-                case nameof(ListBox):if ((e as KeyEventArgs).Key == Key.Delete) DlgProc(btnDel, null);break;
+                case nameof(TextBox):
+                    {
+                        if ((e as KeyEventArgs).Key == Key.Enter)
+                        {
+                            DlgProc(btnAdd, null);
+                        }
+                        if ((e as KeyEventArgs).Key == Key.Escape)
+                        {
+                            tbInput.Clear();
+                        }
+                        break;
+                    }
+
+                case nameof(ListBox):
+                    {
+                        if ((e as KeyEventArgs).Key == Key.Delete)
+                        {
+                            DlgProc(btnDel, null);
+                        }
+
+                        if ((e as KeyEventArgs).Key == Key.Enter)
+                        {
+                            var len = listBox.Items.Count;
+                            bool isLast = listBox.SelectedIndex == len - 1;
+                            if (isLast)
+                            {
+                                listBox.SelectedIndex = 0;
+                            }
+                            else
+                            {
+                                listBox.SelectedIndex++;
+                            }
+                        }
+                            break;
+                    }
                 case nameof(Button):
                     switch ((sender as Button).Content)
                     {
@@ -44,13 +77,14 @@ namespace ListBox
                                 tbInput.Focus();
                             }
                             break;
-                        case "CLR": listBox.Items.Clear(); break;
+                        case "CLR":
+                                listBox.Items.Clear(); break;
                         case "DEL":
                             if (listBox.SelectedIndex >= 0)
                                 listBox.Items.RemoveAt(listBox.SelectedIndex); break;
                     }
                     break;
-                
+
             }
         }
 
